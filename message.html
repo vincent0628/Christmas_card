@@ -11,7 +11,8 @@
         <link rel="stylesheet" type="text/css" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   
+        <script type="text/javascript" src="http://jplayer.org/latest/js/jquery.jplayer.min.js"></script>
+
    <head>
 		<style>
 		
@@ -35,7 +36,8 @@
         .snowman{
             position: relative;
             left:5px;
-            top:2px;
+            top: 20%;
+            bottom: 5%;
         }
         .face{
             height: 120px;
@@ -128,7 +130,7 @@
             border-left:8px solid transparent;
             border-right: 8px solid transparent;
             position: relative;
-            bottom:90px;
+            bottom:180px;
             left:195px;
             transform:rotate(-15deg);
         }
@@ -227,49 +229,56 @@
 	
 	video {
 		height: 400px;
-		width: 65%;
+		width: 80%;
 		margin-left: 5%;
 		margin-top: 2%;
 	}
 	
 	.typewriter{
 		background: linear-gradient(to right, #c0392b, #8e44ad);
-		background-size: 68.5%;
+		background-size: 80%;
 		position: relative;
-		margin-left: 5.4%;
+		/*margin: 5%;*/
 		background-repeat: no-repeat;
-		text-align: center-left;
-		text-indent: 15%;
+		text-align: center;
 		/*padding: 1em;*/
-		font-size: 1.6em;
-		font-family:verdana;
-		* { color:#fff; text-decoration: none;}
+		font-size: 1.0em;
+        font-family: "LiGothic", "FangSong", Arial, serif;		
+        * { color:#fff; text-decoration: none;}
 	}
 	
 	a{
 		color: white;
 	 }
-
+audio {
+    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+    /*width: 20%;*/
+    height: 25px;
+}
 		
 		</style>
    </head>
    
    
    <body>
-		 <div class="button-container">
-
-				<a href="./index.html">Close Card</a>
+           <audio controls autoplay loop>
+            <source src="./Xmas.mp3" type="audio/mpeg">
+              Your browser does not support the audio tag. 
+            </audio>
+		<div class="button-container">
+ 
+			<a href="./index.html">Close Card</a>
 		</div>	
-			 	<script src="js/snow.js"></script>
+	 	<script src="js/snow.js"></script>
 				
-					<video autoplay controls>
-						<source src="./Attachments/celebration.mp4"
-						type="video/mp4">
-						Sorry, your browser doesn't support embedded videos.
-					</video>
+		<video autoplay controls>
+			<source src="./Attachments/celebration.mp4"
+			type="video/mp4">
+			Sorry, your browser doesn't support embedded videos.
+		</video>
 
 		<div class="typewriter">
-				<a href="" class="typewrite" data-period="2000" data-type='[ "Merry Christmas, my little cute girl!" ]'>
+				<a href="" class="typewrite" data-period="2000" data-type='[ "我本想說些漂亮的話哄妳", "但想來想去最漂亮的是妳!" ,"所以","聖誕快樂!"]'>
 				<span class="wrap"></span>
 				</a>
 		</div>	
@@ -308,7 +317,7 @@
           
     </div>
     <div class="snow"></div>
-		
+
    </body>
    
    <script> 
@@ -367,9 +376,11 @@
         css.type = "text/css";
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
+        document.getElementById('myaudio').play();
     };
-
-	
+    $(document).ready(function() {
+    document.getElementById('myaudio').play(); 
+});
 </script>
-   
+
 </html>
