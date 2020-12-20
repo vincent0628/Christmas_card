@@ -11,7 +11,6 @@
         <link rel="stylesheet" type="text/css" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="http://jplayer.org/latest/js/jquery.jplayer.min.js"></script>
 
    <head>
 		<style>
@@ -224,9 +223,23 @@
 		border-radius:2em;
 		color:white;
 		text-transform:uppercase;
-		padding:1em 2em;
+		padding:0.5em 1em;
 	}
 	
+    .button-container2{
+        display:inline-block;
+    }
+
+    .button-container2 a{
+        position: absolute;
+        top:80px;
+        right:3%;
+        background-color:#81cbeb;
+        border-radius:2em;
+        color:white;
+        text-transform:uppercase;
+        padding:0.5em 1em;
+    }
 	video {
 		height: 400px;
 		width: 80%;
@@ -268,7 +281,10 @@ audio {
 		<div class="button-container">
  
 			<a href="./index.html">Close Card</a>
-		</div>	
+		</div>
+        <div class="button-container2")">
+            <a>Close Snowman</a>
+        </div>	
 	 	<script src="js/snow.js"></script>
 				
 		<video autoplay controls>
@@ -321,6 +337,7 @@ audio {
    </body>
    
    <script> 
+
 	var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
         this.el = el;
@@ -363,6 +380,7 @@ audio {
     };
 
     window.onload = function() {
+
         var elements = document.getElementsByClassName('typewrite');
         for (var i=0; i<elements.length; i++) {
             var toRotate = elements[i].getAttribute('data-type');
@@ -376,11 +394,17 @@ audio {
         css.type = "text/css";
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
-        document.getElementById('myaudio').play();
     };
-    $(document).ready(function() {
-    document.getElementById('myaudio').play(); 
-});
+
 </script>
+<script>
+
+    $(document).ready(function() {
+$('.button-container2').click(function(){
+   $('.snowman').remove();
+   $(this).remove();
+});
+});
+    </script>
 
 </html>
