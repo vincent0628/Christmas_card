@@ -298,10 +298,12 @@ audio {
                 "對不起",
                 "三天前又把你弄哭",
                 "現在12/22 05:32", 
-                "其實我很怕一年後的我們如何適應遠距離",
+                "其實我很怕一年後的我們",
+                "如何適應遠距離",
                 "會不會兩三天又發生雷同的事情",
                 "我想你了",
-                "不過現在可以在你隨時想要找到我的時候就找到我",
+                "不過現在可以",
+                "在你隨時想要找到我的時候就找到我",
                 "就先不去想未來了",
                 "愛你"]'>
 				<span class="wrap"></span>
@@ -355,7 +357,7 @@ audio {
         this.toRotate = toRotate;
         this.el = el;
         this.loopNum = 0;
-        this.period = parseInt(period, 10) || 2000;
+        this.period = parseInt(period, 10);
         this.txt = '';
         this.tick();
         this.isDeleting = false;
@@ -364,7 +366,6 @@ audio {
     TxtType.prototype.tick = function() {
         var i = this.loopNum % this.toRotate.length;
         var fullTxt = this.toRotate[i];
-
         if (this.isDeleting) {
         this.txt = fullTxt.substring(0, this.txt.length - 1);
         } else {
@@ -386,7 +387,9 @@ audio {
         this.loopNum++;
         delta = 500;
         }
-
+        if (i==15){
+            this.isDeleting = false;;
+        }
         setTimeout(function() {
         that.tick();
         }, delta);
@@ -398,10 +401,7 @@ audio {
         for (var i=0; i<elements.length; i++) {
             var toRotate = elements[i].getAttribute('data-type');
             var period = elements[i].getAttribute('data-period');
-
-            if (i ==13){
-                period = "200000";
-            }
+           
             if (toRotate) {
               new TxtType(elements[i], JSON.parse(toRotate), period);
             }
