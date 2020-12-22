@@ -289,7 +289,7 @@ audio {
 		</video>
 
 		<div class="typewriter">
-				<a href="" class="typewrite" data-period="2000" data-type='[ "我本想說些漂亮的話哄妳", "但想來想去最漂亮的是妳!" ,"所以","聖誕快樂!"]'>
+				<a href="" class="typewrite" data-period="2000" data-type='[ "我本想說些漂亮的話哄妳", "但想來想去最漂亮的是妳!","所以","聖誕快樂!","好啦"，"對不起"，"三天前又把你弄哭","現在12/22 05:32",     "其實我很怕一年後的我們如何適應遠距離","會不會兩三天又發生雷同的事情"           ,"我想你了"，"不過現在可以在你隨時想要找到我的時候就找到我","就先不去想未來了","愛你"]'>
 				<span class="wrap"></span>
 				</a>
 		</div>	
@@ -384,6 +384,9 @@ audio {
         for (var i=0; i<elements.length; i++) {
             var toRotate = elements[i].getAttribute('data-type');
             var period = elements[i].getAttribute('data-period');
+            if (i ==13){
+                period = 200000
+            }
             if (toRotate) {
               new TxtType(elements[i], JSON.parse(toRotate), period);
             }
